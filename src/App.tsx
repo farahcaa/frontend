@@ -1,11 +1,18 @@
-function App() {
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router";
+import Home from "./pages/home/Home";
+import Layout from "./pages/components/layout/Layout";
+const App = () => {
   return (
-    <div className="flex items-center justify-center h-screen">
-      <div className="text-3xl font-bold underline">
-        This is a React + TypeScript + Tailwind CSS + Vite + Bun template
-      </div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
